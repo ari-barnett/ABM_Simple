@@ -1,4 +1,4 @@
-# ABM_non OOP
+# ABM_non OOP approach
 
 This agent-based model is represented using a 2D numeric array with confined board space of 50 X 50, with the randomization of agent placement (~50% placement).  
 For this model the general rules for advancement are: 
