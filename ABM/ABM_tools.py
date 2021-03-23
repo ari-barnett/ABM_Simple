@@ -43,6 +43,7 @@ def survival(p):
 
 
 def reproduce():
+    ''' Generation of new cells dependent on the availabilty of open space - and validation of random space in valid index choices '''
     m = 0
     n = 0
     for idx, i in np.ndenumerate(new):  
@@ -52,14 +53,6 @@ def reproduce():
                 if a in lst and new[a] == 0:
                     new[a] = 2
                     break
-        '''
-        elif  i == 0:
-            new[idx] = 0
-        
-        else:
-            new[idx] = 1
-        '''
-
         n += 1
         if (n % 50) == 0:
             m += 1
@@ -69,6 +62,7 @@ def reproduce():
 i = 0
 
 def index_manifest():
+    ''' Generates all valid index points within the board size wanted - returns entire manifest '''
     lst = []
     for idx, i in np.ndenumerate(x):
         lst.append(idx)
