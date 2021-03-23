@@ -7,7 +7,7 @@ grid = []
 for row in range(50):  
     grid.append([])
     for column in range(50):        
-        grid[row].append(np.random.binomial(1,0.75))
+        grid[row].append(np.random.binomial(1,0.50))
         x = np.array(grid)
 new = np.copy(x)
 
