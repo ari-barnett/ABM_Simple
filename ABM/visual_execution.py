@@ -8,6 +8,8 @@ i = 0
 
 print('Inital Population: ', np.sum(ABM_tools.x))
 
+""" EXECUTION OF ABM SYSTEM """
+''' ==============================================================  '''
 while i < 365: 
     ABM_tools.survival(0.5)
     ABM_tools.reproduce()
@@ -22,6 +24,8 @@ while i < 365:
     i += 1
 
 
+""" VISUALIZATION """
+''' ==============================================================  '''
 pyplot.title('Decay Model - Survival Rate = 0.50')
 pyplot.xlabel('Time (Days)')
 pyplot.ylabel('Activated Cell Poplulation')
