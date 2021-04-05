@@ -4,6 +4,7 @@ import random
 
 grid = []
 
+# The segment of code below sets the intial board randomly
 for row in range(50):  
     grid.append([])
     for column in range(50):        
