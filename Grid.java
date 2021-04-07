@@ -59,7 +59,7 @@ public class Grid extends AgentGrid2D<ABM.Cell> {
         GridWindow window=new GridWindow(x,y,3);
         ABM.Grid model=new ABM.Grid(x,y);
 
-        for (int a = 0; a < 1000; a++){ //Can be used to generate multiple random cells ***DOES NOT ACCOUNT FOR REPEATS***
+        for (int a = 0; a < 1000; a++){ //Can be used to generate multiple random cells 
             Random rand= new Random();
             int upperbound = 250;
             int j = rand.nextInt(upperbound);
