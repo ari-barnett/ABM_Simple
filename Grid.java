@@ -10,7 +10,7 @@ import java.util.Random;
 
 class Cell extends AgentSQ2Dunstackable<ABM.Grid> {
 
-    public void StepCell(double divProb) {
+    public void StepCell(double divProb, double dieProb) {
         // Each step consists of an ability to reproduce at a 50% chance (divProb) == Dependent on availabilty
         // Else Cell dies
 
@@ -19,8 +19,10 @@ class Cell extends AgentSQ2Dunstackable<ABM.Grid> {
             if (options > 0) {
                 G.NewAgentSQ(G.divHood[G.rng.Int(options)]);
             }
-        } else{
+        }
+        if (G.rng.Double() < dieProb){
             Dispose();
+            return;
         }
     }
 }
@@ -33,9 +35,9 @@ public class Grid extends AgentGrid2D<ABM.Cell> {
     public Grid(int x, int y) {
         super(x, y, ABM.Cell.class);
     }
-    public void StepCells(double divProb){
+    public void StepCells(double divProb, double dieProb){
         for(ABM.Cell cell:this){
-            cell.StepCell(divProb);
+            cell.StepCell(divProb, dieProb);
         }
     }
     public void DrawModel(GridWindow window){ //Returns Cells in a Blue color depiction... Empty space == White
@@ -52,6 +54,7 @@ public class Grid extends AgentGrid2D<ABM.Cell> {
         int y=250; // Y dimension of board
         int timesteps=1000; //Duration of simulation in "Days"
         double divProb=0.50; //Probability 50%
+        double dieProb=0.50;
 
         GridWindow window=new GridWindow(x,y,3);
         ABM.Grid model=new ABM.Grid(x,y);
@@ -66,9 +69,11 @@ public class Grid extends AgentGrid2D<ABM.Cell> {
                 model.NewAgentSQ(j,k);
             }
         }
+        //model.NewAgentSQ(model.xDim/2, model.yDim/2);
+
         for (int i = 0; i < timesteps; i++){
             window.TickPause(100);
-            model.StepCells(divProb);
+            model.StepCells(divProb, dieProb);
             model.DrawModel(window);
         }
     }
