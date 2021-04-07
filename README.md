@@ -1,6 +1,6 @@
-# ABM_non OOP approach
+# ABM
 
-This agent-based model is represented using a 2D numeric array with confined board space of 150 X 150, with the randomization of agent placement (~50% placement).  
+This agent-based model is represented using a 2D numeric array with confined board space of 150 X 150, with the randomization of agent placement (~5% placement).  
 For this model the general rules for advancement are: 
 
 - Neighbourhood Style: Moore
